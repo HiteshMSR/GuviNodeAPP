@@ -4,14 +4,15 @@ import dotenv from "dotenv";
 import {moviesRouter} from "./Routes/movies.js";
 import cors from 'cors';
 
+
 // const express = require('express')
 const app = express()
 
 dotenv.config()
-app.use(cors({origin : "*"}))
+app.use(cors())
 // const MONGO_URL = "mongodb://127.0.0.1";
-const MONGO_URL="mongodb+srv://hitesh:hitesh@cluster0.cquwee5.mongodb.net/";
-// const MONGO_URL=process.env.MONGO_URL;
+// const MONGO_URL="mongodb+srv://hitesh:hitesh@cluster0.cquwee5.mongodb.net/";
+const MONGO_URL=process.env.MONGO_URL;
 
 const movies1=[
   {
@@ -100,7 +101,6 @@ const PORT=process.env.PORT
 here makes it global*/
 app.use(express.json())
 app.use("/movies",moviesRouter)
-
 async function createConnection() {
    const client = new MongoClient(MONGO_URL);
   await client.connect();
