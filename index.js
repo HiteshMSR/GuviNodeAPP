@@ -7,9 +7,9 @@ import cors from 'cors';
 
 // const express = require('express')
 const app = express()
-
-dotenv.config()
 app.use(cors())
+dotenv.config()
+
 // const MONGO_URL = "mongodb://127.0.0.1";
 // const MONGO_URL="mongodb+srv://hitesh:hitesh@cluster0.cquwee5.mongodb.net/";
 const MONGO_URL=process.env.MONGO_URL;
